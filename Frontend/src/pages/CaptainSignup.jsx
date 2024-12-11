@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 
 const CaptainSignup = () => {
   const [email, setEmail] = useState(' ');
   const [password, setPassword] = useState(' ');
   const [captainData, setCaptainData] = useState('');
+  const[firstName,setFirstName]=useState('');
+  const[lastName,setLastName]=useState('');
 
 
   const submitHandler = (e) => {
@@ -23,13 +25,13 @@ const CaptainSignup = () => {
   return (
     <div>
       <div>
-        <div className='p-7 h-screen flex flex-col justify-between '>
+        <div className='py-5 px-5 h-screen flex flex-col justify-between '>
           <div>
-            <img className='w-20 mb-3' src="https://www.pngall.com/wp-content/uploads/4/Uber-Logo-PNG-Free-Image.png"></img>
+            <img className='w-20 mb-3' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogos-world.net%2Fwp-content%2Fuploads%2F2020%2F05%2FUber-Emblem.png&f=1&nofb=1&ipt=cbf0ecfcd51cae31d742d699bf3a07137980972e70f0282b237899d43526941c&ipo=images"></img>
             <form onSubmit={(e) => {
               e.preventDefault()
               setUserData({
-                username: {
+                fullName: {
                   firstName: firstName,
                   lastName: lastName
                 },
@@ -42,13 +44,13 @@ const CaptainSignup = () => {
               setLastName('');
             }}>
 
-              <h3 className='text-base font-medium mb-2'>Whats your name?</h3>
+              <h3 className='text-base font-medium mb-2'> Let’s start with your name, Captain.</h3>
               <div className='flex gap-4 mb-5'>
                 <input required
                   value={firstName}
-                  onChange={(e) => {
+                  onChange={(e) =>
                     setFirstName(e.target.value)
-                  }}
+                  }
 
                   className='bg-[#eeeeee] w-1/2 rounded px-4 py-2 border text-base placeholder:text-sm'
                   type="text" placeholder='Siddhant '>
@@ -66,7 +68,7 @@ const CaptainSignup = () => {
 
                 </input>
               </div>
-              <h3 className='text-base font-medium mb-2'>Whats your Email ?</h3>
+              <h3 className='text-base font-medium mb-2'>What’s your email address, Captain?</h3>
               <input required
                 value={email}
                 onChange={(e) => {
@@ -79,7 +81,7 @@ const CaptainSignup = () => {
               </input>
 
               <h3 className='text-base font-medium mb-2'>
-                Enter Password</h3>
+              Choose a strong password, Captain!</h3>
               <input required
                 value={password}
                 onChange={(e) => {
@@ -94,7 +96,7 @@ const CaptainSignup = () => {
 
             </form>
 
-            <p className='text-center'>Have an account already? <Link to="/login" className='text-blue-600'>SignIn</Link></p>
+            <p className='text-center'>Have an account already? <Link to="/captain-login" className='text-blue-600'>Login Here</Link></p>
 
           </div>
           <div>

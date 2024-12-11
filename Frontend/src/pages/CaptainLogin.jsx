@@ -29,7 +29,7 @@ const CaptainLogin = () => {
         <form onSubmit={(e) => {
           submitHandler(e)
         }}>
-          <h3 className='text-lg font-medium mb-2'>What's your Email?</h3>
+          <h3 className='text-lg font-medium mb-2'>What’s your email address, Captain?</h3>
           <input required
             value={email}
             onChange={(e) => {
@@ -40,7 +40,7 @@ const CaptainLogin = () => {
           </input>
 
           <h3 className='text-lg font-medium mb-2'>
-            Enter Password</h3>
+             Captain! Enter your password</h3>
           <input required
             value={password}
             onChange={(e) => {

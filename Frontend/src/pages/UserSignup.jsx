@@ -14,7 +14,7 @@ const UserSignup = () => {
           <form onSubmit={(e) => {
             e.preventDefault()
             setUserData({
-              username: {
+              fullName: {
                 firstName: firstName,
                 lastName: lastName
               },
