@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { UserDataContext } from '../context/UserContext';
+import UberLogo from "../assets/img/Uber-Logo.png";
 
 
 const UserSignup = () => {
@@ -49,7 +50,7 @@ const UserSignup = () => {
         <div>
           <img
             className="w-20 mb-3"
-            src="https://www.pngall.com/wp-content/uploads/4/Uber-Logo-PNG-Free-Image.png"
+            src={UberLogo}
             alt="Uber Logo"
           />
           <form onSubmit={submitHandler}>

@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { CaptainDataContext } from '../context/CaptainContext';
+import UberEmblem from "../assets/img/Uber-Emblem.png";
 const CaptainLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -36,8 +37,7 @@ const CaptainLogin = () => {
 
     <div className='p-5 h-screen flex flex-col justify-between mb-20' >
       <div>
-        <img className='w-20 mb-3' src=
-          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogos-world.net%2Fwp-content%2Fuploads%2F2020%2F05%2FUber-Emblem.png&f=1&nofb=1&ipt=cbf0ecfcd51cae31d742d699bf3a07137980972e70f0282b237899d43526941c&ipo=images"></img>
+        <img className="w-20 mb-3" src={UberEmblem} alt="Uber Emblem" />
         <form onSubmit={(e) => {
           submitHandler(e)
         }}>
