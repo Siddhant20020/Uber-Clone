@@ -3,7 +3,7 @@ const LookingForCaptain = (props) => {
   return (
     <div>
       <h5 className='p-1 text-center w-[93%] absolute top-0'
-        onClick={() => {
+        onClick={(props)=>{
           props.setVehiclePanel(false)
         }}><i className=" text-3xl text-gray-500 ri-arrow-down-wide-line"></i></h5>
       <h3 className='text-2xl font-semibold mb-5'>Looking For a Captain</h3>

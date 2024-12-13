@@ -1,13 +1,19 @@
-import React from 'react'
-const RidePopUp = (props) => {
+import React, { useEffect } from 'react'
+import ConfirmRidePopup from './ConfirmRidePopUp';
+import { Link } from 'react-router-dom';
+
+const FinishRide = (props) => {
+
   return (
     <div>
+
+
       <h5 className='p-1 text-center w-[93%] absolute top-0'
         onClick={() => {
-          props.setRidePopupPanel(false)
+          props.setFinishRidePanel(false)
         }}><i className=" text-3xl text-gray-500 ri-arrow-down-wide-line"></i></h5>
-      <h3 className='text-2xl font-semibold mb-5'>New Ride Available</h3>
-      <div className='flex items-center justify-between mt-4 p-3 bg-yellow-400 rounded-lg'>
+      <h3 className='text-2xl font-semibold mb-5'>Reached Destination?</h3>
+      <div className='flex items-center justify-between mt-4 p-4 bg-yellow-400 rounded-lg border-2 '>
         <div className='flex items-center gap-3 '>
           <img className='h-10 w-10 rounded-full object-cover' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmymodernmet.com%2Fwp%2Fwp-content%2Fuploads%2F2019%2F09%2F100k-ai-faces-3.jpg&f=1&nofb=1&ipt=ac78865104d685d56e34e176e91cb190d92a0beb780028ef5b7466b0964e2fef&ipo=image" />
           <h2 className='text-xl font-medium'>Imohang Rai</h2>
@@ -43,33 +49,16 @@ const RidePopUp = (props) => {
           </div>
 
         </div>
-        <div className='flex items-center  justify-between w-full mt-5 '>
-          <button onClick={() => {
-            props.setConfirmRidePopupPanel(true)
+        <div className='mt-6 w-full'>
 
-          }}
-            className='   bg-green-600 text-white font-semibold p-3 rounded-lg px-8'>Accept </button>
+          {/* <input type='text' className='bg-[#eee] px-6 py-4 text-base rounded-lg w-full mt-2 font-mono' placeholder='Enter your OTP' /> */}
+          <Link to='/captain-home' className='w-full mt-5  bg-green-600 text-white font-semibold p-3 rounded-lg  justify-center flex text-lg'>Destination Reached </Link>
+          <p className=' mt-10 text-xs'> Click on above button only if you've completed the ride</p>
 
-          <button onClick={() => {
-            props.setRidePopupPanel(false)
 
-          }}
-            className=' mt-1   bg-gray-300 text-black-700 font-semibold p-3 rounded-lg px-8 '>Ignore </button>
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
   )
 }
-export default RidePopUp;
+export default FinishRide;

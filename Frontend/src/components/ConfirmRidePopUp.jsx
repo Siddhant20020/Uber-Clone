@@ -1,12 +1,18 @@
-import React from 'react'
-const RidePopUp = (props) => {
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+const ConfirmRidePopup = (props) => {
+  const [otp, setOtp] = useState('');
+  const SubmitHandler = (e) => {
+    e.preventDefault();
+
+  }
   return (
     <div>
       <h5 className='p-1 text-center w-[93%] absolute top-0'
         onClick={() => {
           props.setRidePopupPanel(false)
         }}><i className=" text-3xl text-gray-500 ri-arrow-down-wide-line"></i></h5>
-      <h3 className='text-2xl font-semibold mb-5'>New Ride Available</h3>
+      <h3 className='text-2xl font-semibold mb-5'>Shall we?</h3>
       <div className='flex items-center justify-between mt-4 p-3 bg-yellow-400 rounded-lg'>
         <div className='flex items-center gap-3 '>
           <img className='h-10 w-10 rounded-full object-cover' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmymodernmet.com%2Fwp%2Fwp-content%2Fuploads%2F2019%2F09%2F100k-ai-faces-3.jpg&f=1&nofb=1&ipt=ac78865104d685d56e34e176e91cb190d92a0beb780028ef5b7466b0964e2fef&ipo=image" />
@@ -43,33 +49,24 @@ const RidePopUp = (props) => {
           </div>
 
         </div>
-        <div className='flex items-center  justify-between w-full mt-5 '>
-          <button onClick={() => {
-            props.setConfirmRidePopupPanel(true)
+        <div className='mt-6 w-full'>
+          <form onSubmit={(e) => {
+            SubmitHandler(e);
+          }}>
+            <input value={otp} onChange={(e) => setOtp(e.target.value)}
+              type='text' className='bg-[#eee] px-6 py-4 text-base rounded-lg w-full mt-2 font-mono' placeholder='Enter your OTP' />
+            <Link to='/captain-riding' className='w-full mt-5  bg-green-600 text-white font-semibold p-3 rounded-lg flex justify-center text-lg '>Confirm </Link>
 
-          }}
-            className='   bg-green-600 text-white font-semibold p-3 rounded-lg px-8'>Accept </button>
+            <button onClick={() => {
+              props.setConfirmRidePopupPanel(false)
+              props.setRidePopupPanel(false)
 
-          <button onClick={() => {
-            props.setRidePopupPanel(false)
-
-          }}
-            className=' mt-1   bg-gray-300 text-black-700 font-semibold p-3 rounded-lg px-8 '>Ignore </button>
+            }}
+              className='w-full mt-2 bg-red-600 text-white font-semibold p-3 rounded-lg text-lg '>Cancel </button>
+          </form>
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
   )
 }
-export default RidePopUp;
+export default ConfirmRidePopup;
